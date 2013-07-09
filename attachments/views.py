@@ -10,12 +10,14 @@ from django.contrib import messages
 from attachments.models import Attachment
 from attachments.forms import AttachmentForm
 
+
 def add_url_for_obj(obj):
-    return reverse('add_attachment', kwargs={
-                        'app_label': obj._meta.app_label,
-                        'module_name': obj._meta.module_name,
-                        'pk': obj.pk
-                    })
+    return reverse(
+        'add_attachment', kwargs={
+        'app_label': obj._meta.app_label,
+        'module_name': obj._meta.module_name,
+        'pk': obj.pk})
+
 
 @require_POST
 @login_required
